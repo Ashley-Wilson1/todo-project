@@ -37,4 +37,8 @@ def todo(request):
         print(title)
         obj = models.TODOO(title=title,user= request.user)
         obj.save()
+        res = models.TODOO.objects.filter(user=request.user).order_by('-date')
+        return redirect('/todopage',{'res':res})
+    
+    res = models.TODOO.objects.filter(user=request.user).order_by('-date')
     return render(request,'todo.html')

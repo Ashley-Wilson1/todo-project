@@ -5,7 +5,7 @@ from todo.models import TODOO
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
-
+#this function handles to signup request sends user to login page
 def signup(request):
     if request.method == 'POST':
         fnm=request.POST.get('fnm')
@@ -18,6 +18,7 @@ def signup(request):
 
     return render(request, 'signup.html')
 
+#this function handles to login sends user to todo page
 def loginn(request):
     if request.method == 'POST':
         fnm = request.POST.get('fnm')
@@ -32,6 +33,7 @@ def loginn(request):
 
     return render(request,'loginn.html')
 
+#this handles to tasks that user adds
 @login_required(login_url='/loginn')
 def todo(request):
     if request.method=='POST':
@@ -46,14 +48,15 @@ def todo(request):
     res = models.TODOO.objects.filter(user=request.user).order_by('-date')
     return render(request,'todo.html',{'res':res})
 
-
+#this handles the user deleting a task
 @login_required(login_url='/loginn')
 def delete_todo(request,srno):
     obj = models.TODOO.objects.get(srno=srno)
     obj.delete()
     return redirect('/todopage')
-@login_required(login_url='/loginn')
 
+#this handles the page that the user uses to edit a task
+@login_required(login_url='/loginn')
 def edit_todo(request,srno):
     if request.method=='POST':
         title=request.POST.get('title')
@@ -66,6 +69,7 @@ def edit_todo(request,srno):
     obj = models.TODOO.objects.get(srno=srno)
     return render(request,'edit_todo.html',{'obj':obj})
 
+#handles the sign out
 def signout(request):
     logout(request)
     return redirect('/loginn')

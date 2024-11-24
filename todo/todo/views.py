@@ -46,7 +46,14 @@ def todo(request):
     res = models.TODOO.objects.filter(user=request.user).order_by('-date')
     return render(request,'todo.html',{'res':res})
 
+
 @login_required(login_url='/loginn')
+def delete_todo(request,srno):
+    obj = models.TODOO.objects.get(srno=srno)
+    obj.delete()
+    return redirect('/todopage')
+@login_required(login_url='/loginn')
+
 def edit_todo(request,srno):
     if request.method=='POST':
         title=request.POST.get('title')
@@ -57,13 +64,7 @@ def edit_todo(request,srno):
         return redirect('/todopage')
     
     obj = models.TODOO.objects.get(srno=srno)
-    return render(request,'todo.html',{'obj':obj})
-
-@login_required(login_url='/loginn')
-def delete_todo(request,srno):
-    obj = models.TODOO.objects.get(srno=srno)
-    obj.delete()
-    return redirect('/todopage')
+    return render(request,'edit_todo.html',{'obj':obj})
 
 def signout(request):
     logout(request)

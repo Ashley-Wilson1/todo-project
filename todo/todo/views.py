@@ -37,8 +37,21 @@ def todo(request):
         print(title)
         obj = models.TODOO(title=title,user= request.user)
         obj.save()
+        user=request.user
         res = models.TODOO.objects.filter(user=request.user).order_by('-date')
         return redirect('/todopage',{'res':res})
     
     res = models.TODOO.objects.filter(user=request.user).order_by('-date')
-    return render(request,'todo.html')
+    return render(request,'todo.html',{'res':res})
+
+def edit_todo(request,srno):
+    if request.method=='POST':
+        title=request.POST.get('title')
+        print(title)
+        obj = models.TODOO.objects.get(srno=srno)
+        obj.title=title
+        obj.save()
+        return redirect('/todopage')
+    
+    obj = models.TODOO.objects.get(srno=srno)
+    return render(request,'todo.html',{'obj':obj})

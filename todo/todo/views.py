@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from todo import models
-from todo.models import TODO
+from todo.models import TODOO
 from django.contrib.auth import authenticate,login,logout
 
 
@@ -30,3 +30,11 @@ def loginn(request):
             return redirect('/loginn')
 
     return render(request,'loginn.html')
+
+def todo(request):
+    if request.method=='POST':
+        title=request.POST.get('title')
+        print(title)
+        obj = models.TODOO(title=title,user= request.user)
+        obj.save()
+    return render(request,'todo.html')

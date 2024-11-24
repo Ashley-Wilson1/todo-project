@@ -1,0 +1,37 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Font Awesome 5 Brands:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="signup-login">
+      <div class="signup-box">
+        <form method="post">
+          <div class="heading">Get Things Done</div>
+          {% csrf_token %}
+          <input
+            type="text"
+            class="inp"
+            name="title"
+            required
+            placeholder="Add Today's task?"
+          />
+          <input type="submit" class="submit-button" value="Add Task" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

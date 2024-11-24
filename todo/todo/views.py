@@ -55,3 +55,13 @@ def edit_todo(request,srno):
     
     obj = models.TODOO.objects.get(srno=srno)
     return render(request,'todo.html',{'obj':obj})
+
+def delete_todo(request,srno):
+    obj = models.TODOO.objects.get(srno=srno)
+    obj.delete()
+    return redirect('/todopage')
+
+def signout(request):
+    logout(request)
+    return redirect('/loginn')
+    

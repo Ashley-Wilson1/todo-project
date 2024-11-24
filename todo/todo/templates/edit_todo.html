@@ -21,7 +21,8 @@
         <div class="heading">Get Things Done</div>
         <i class="fa-solid fa-right-from-bracket"></i>
         <form method="post">
-          {% csrf_token %} <input type="text" class="inp" name="title" required placeholder="Add Today's task?" value="{{obj.title}}" />
+          {% csrf_token %}
+          <input type="text" class="inp" name="title" required placeholder="edit task?" value="{{obj.title}}" />
           <input type="submit" class="submit-button" value="Update Task" />
         </form>
         {% for todo in res %}

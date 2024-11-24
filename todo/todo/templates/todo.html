@@ -14,28 +14,33 @@
   <body>
     <div class="signup-login">
       <div>
-        <h1>Hello {{user}}</h1>
-      </div>
-
-      <div class="signup-box">
-        <div class="heading">Get Things Done</div>
-        <i class="fa-solid fa-right-from-bracket"></i>
-        <form method="post">
-          {% csrf_token %}
-
-          <input type="text" class="inp" name="title" required placeholder="Add Today's task?" />
-          <input type="submit" class="submit-button" value="Add Task" />
-        </form>
-        {% for todo in res %}
-        <div class="Todo">
-          <h5>{{todo.srno}}</h5>
-          <p>{{todo.title}}</p>
-          <div>
-            <a href="/edit_todo/{{todo.srno}}"><i class="fa-solid fa-pen-to-square"></i></a>
-            <a href=""><i class="fa-solid fa-trash"></i></a>
-          </div>
+        <div>
+          <h1>Hello {{user}}</h1>
         </div>
-        {% endfor %}
+
+        <div class="signup-box scr">
+          <div class="heading">Get Things Done</div>
+          <div class="anca">
+            <a href="{% url 'signout' %}" class="sign"><i class="fa-solid fa-right-from-bracket"></i></a>
+          </div>
+
+          <form method="post">
+            {% csrf_token %}
+
+            <input type="text" class="inp" name="title" required placeholder="Add Today's task?" />
+            <input type="submit" class="submit-button" value="Add Task" />
+          </form>
+          {% for todo in res %}
+          <div class="Todo">
+            <h5>{{todo.srno}}</h5>
+            <p>{{todo.title}}</p>
+            <div>
+              <a href="/edit_todo/{{todo.srno}}"><i class="fa-solid fa-pen-to-square"></i></a>
+              <a href="/delete_todo/{{todo.srno}}"><i class="fa-solid fa-trash"></i></a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </body>

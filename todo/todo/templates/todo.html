@@ -33,7 +33,7 @@
             <input type="text" class="todo-input inp" name="title" required placeholder="Add Today's task?" />
             <input type="submit" class="submit-button" value="Add Task" />
           </form>
-
+          <!--this hadnles all the tasks and allows the user adding multiple tasks-->
           {% for todo in res %}
           <div class="Todo clickable-div {% if todo.status %}todo-green{% else %}todo-red{% endif %}">
             <form method="post" action="">

@@ -26,7 +26,7 @@ The application is built with **Python** and **Django** and is hosted online for
 ## Technologies Used  
 
 - **Backend**: Python, Django  
-- **Frontend**: HTML, CSS (Optional: JavaScript for interactivity)  
+- **Frontend**: HTML, CSS, Javascript 
 - **Database**: SQLite (default) Django-compatible database  
 
 

@@ -29,4 +29,12 @@ The application is built with **Python** and **Django** and is hosted online for
 - **Frontend**: HTML, CSS, Javascript 
 - **Database**: SQLite (default) Django-compatible database  
 
+---
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/af422ba1-fc14-4f35-a719-c94cff641f92" />
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/66f629fe-f87b-4324-b578-3b62810939ca" />
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/4d32e289-1f2c-455d-8ef0-c7e697860570" />
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/5fe66498-7edf-4d24-be29-a51d8e0f34c1" />
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/97224ae0-e647-4c90-8b5e-d68599c14d10" />
+
+
 
